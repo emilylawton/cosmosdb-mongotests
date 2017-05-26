@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosDb.MongoDbTests", "CosmosDb.MongoDbTests\CosmosDb.MongoDbTests.csproj", "{80713421-BB46-4617-93A9-A7966741DFBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80713421-BB46-4617-93A9-A7966741DFBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80713421-BB46-4617-93A9-A7966741DFBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80713421-BB46-4617-93A9-A7966741DFBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80713421-BB46-4617-93A9-A7966741DFBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
