@@ -8,13 +8,15 @@ namespace CosmosDb.MongoDbTests
     {
         private readonly IMongoDatabase _db;
         private readonly IMongoCollection<TType> _collection;
+        private readonly string _collectionName;
 
         public DatabaseTestWrapper(DatabaseType type)
         {
             var connectionString = ConfigurationManager.AppSettings[type.ToString()];
             var client = new MongoClient(MongoUrl.Create(connectionString));
             _db = client.GetDatabase("test");
-            _collection = _db.GetCollection<TType>(typeof(TType).Name);
+            _collectionName = typeof(TType).Name + "_" + Guid.NewGuid().ToString("N");
+            _collection = _db.GetCollection<TType>(_collectionName);
         }
 
         public IMongoCollection<TType> Collection()
@@ -24,7 +26,7 @@ namespace CosmosDb.MongoDbTests
 
         public void Dispose()
         {
-            _db.DropCollection(typeof(TType).Name);
+            _db.DropCollection(_collectionName);
         }
     }
 }

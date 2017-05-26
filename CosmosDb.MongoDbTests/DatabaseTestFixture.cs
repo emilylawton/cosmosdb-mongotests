@@ -38,20 +38,33 @@ namespace CosmosDb.MongoDbTests
             Database.Collection().InsertMany(docs);
         }
 
-        protected List<TDocument> Find(Expression<Func<TDocument, bool>> expr)
+        protected List<TDocument> Find(FilterDefinition<TDocument> filter)
         {
-            var query = new ExpressionFilterDefinition<TDocument>(expr);
             var serializer = BsonSerializer.LookupSerializer<TDocument>();
-            Console.WriteLine(query.Render(serializer, BsonSerializer.SerializerRegistry).ToString());
-            return Database.Collection().FindSync(expr).ToList();
+            Console.WriteLine(filter.Render(serializer, BsonSerializer.SerializerRegistry).ToString());
+            return Database.Collection().FindSync(filter).ToList();
         }
 
-        protected List<TDocument> FindJson(string json)
+        protected List<TDocument> Find(Expression<Func<TDocument, bool>> expr)
         {
-            var query = new JsonFilterDefinition<TDocument>(json);
+            return Find(new ExpressionFilterDefinition<TDocument>(expr));
+        }
+
+        protected List<TDocument> Find(string json)
+        {
+            return Find(new JsonFilterDefinition<TDocument>(json));
+        }
+
+        protected List<TDocumentOut> Aggregate<TDocumentOut>(PipelineDefinition<TDocument, TDocumentOut> pipeline)
+        {
             var serializer = BsonSerializer.LookupSerializer<TDocument>();
-            Console.WriteLine(query.Render(serializer, BsonSerializer.SerializerRegistry).ToString());
-            return Database.Collection().FindSync(query).ToList();
+            Console.WriteLine(string.Join("\r\n", pipeline.Render(serializer, BsonSerializer.SerializerRegistry).Documents));
+            return Database.Collection().Aggregate(pipeline).ToList();
+        }
+
+        protected IMongoCollection<TDocument> Collection()
+        {
+            return Database.Collection();
         }
     }
 }

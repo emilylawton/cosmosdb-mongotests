@@ -72,11 +72,27 @@
     <Compile Include="DatabaseTestFixture.cs" />
     <Compile Include="DatabaseTestWrapper.cs" />
     <Compile Include="DatabaseType.cs" />
+    <Compile Include="Extensions\ModelListExtensions.cs" />
+    <Compile Include="Extensions\PipelineDefinitionExtensions.cs" />
+    <Compile Include="Models\BasicDocument.cs" />
+    <Compile Include="Models\BasicSubDocument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Aggregate\AggregationPipelineTestFixture.cs" />
+    <Compile Include="Tests\Aggregate\ArithmeticAggregationPipelineTestFixture.cs" />
+    <Compile Include="Tests\Aggregate\BooleanAggregationPipelineTestFixture.cs" />
+    <Compile Include="Tests\Aggregate\StringAggregationPipelineTestFixtures.cs" />
+    <Compile Include="Tests\Aggregate\ArrayAggregationPipelineTestFixture.cs" />
+    <Compile Include="Tests\Aggregate\GroupAggregationPipelineTestFixture.cs" />
+    <Compile Include="Tests\Filter\ArraySingleValueFilterTestFixture.cs" />
+    <Compile Include="Tests\Filter\SimpleFilterTestFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests\MapReduce\" />
+    <Folder Include="Tests\Update\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
