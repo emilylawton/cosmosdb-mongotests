@@ -1,0 +1,1 @@
+.\packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe .\CosmosDb.MongoDbTests\bin\Debug\CosmosDb.MongoDbTests.dll

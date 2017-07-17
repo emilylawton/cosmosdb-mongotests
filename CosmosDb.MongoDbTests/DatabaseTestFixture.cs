@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using CosmosDb.MongoDbTests.Extensions;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using NUnit.Framework;
@@ -9,24 +11,16 @@ namespace CosmosDb.MongoDbTests
 {
     [TestFixture(DatabaseType.AzureCosmosDb)]
     [TestFixture(DatabaseType.NativeMongoDb)]
-    public abstract class DatabaseTestFixture<TDocument>
+    public abstract class DatabaseTestFixture<TDocument> : IDisposable
     {
-        private readonly DatabaseType _databaseType;
         protected DatabaseTestWrapper<TDocument> Database;
 
         protected DatabaseTestFixture(DatabaseType databaseType)
         {
-            _databaseType = databaseType;
+            Database = new DatabaseTestWrapper<TDocument>(databaseType);
         }
-
-        [SetUp]
-        public void SetUp()
-        {
-            Database = new DatabaseTestWrapper<TDocument>(_databaseType);
-        }
-
-        [TearDown]
-        public void TearDown()
+        
+        public void Dispose()
         {
             Database.Dispose();
             Database = null;
@@ -41,7 +35,7 @@ namespace CosmosDb.MongoDbTests
         protected List<TDocument> Find(FilterDefinition<TDocument> filter)
         {
             var serializer = BsonSerializer.LookupSerializer<TDocument>();
-            Console.WriteLine(filter.Render(serializer, BsonSerializer.SerializerRegistry).ToString());
+            Console.Write(filter.Render(serializer, BsonSerializer.SerializerRegistry).ToString());
             return Database.Collection().FindSync(filter).ToList();
         }
 
@@ -55,10 +49,16 @@ namespace CosmosDb.MongoDbTests
             return Find(new JsonFilterDefinition<TDocument>(json));
         }
 
+        protected List<BsonDocument> Aggregate(string json)
+        {
+            var pl = new EmptyPipelineDefinition<TDocument>();
+            return Aggregate(pl.Json<TDocument, BsonDocument>(json));
+        }
+
         protected List<TDocumentOut> Aggregate<TDocumentOut>(PipelineDefinition<TDocument, TDocumentOut> pipeline)
         {
             var serializer = BsonSerializer.LookupSerializer<TDocument>();
-            Console.WriteLine(string.Join("\r\n", pipeline.Render(serializer, BsonSerializer.SerializerRegistry).Documents));
+            Console.Write(string.Join("\r\n", pipeline.Render(serializer, BsonSerializer.SerializerRegistry).Documents));
             return Database.Collection().Aggregate(pipeline).ToList();
         }
 

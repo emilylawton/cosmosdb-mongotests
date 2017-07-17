@@ -20,6 +20,8 @@ namespace CosmosDb.MongoDbTests.Models
 
         public List<int> IntArray { get; set; } = new List<int>();
 
+        public List<int> IntArray2 { get; set; } = new List<int>();
+
         public List<BasicSubDocument> DocumentArray { get; set; } = new List<BasicSubDocument>();
 
         public static BasicDocument Generate(params Action<BasicDocument>[] overrides)
@@ -37,6 +39,7 @@ namespace CosmosDb.MongoDbTests.Models
                 Inner = BasicSubDocument.Generate(),
                 StringArray = Enumerable.Range(0, 5).Select(x => Guid.NewGuid().ToString("N")).ToList(),
                 IntArray = Enumerable.Range(0, 5).Select(x => new Random(x).Next(1, 100)).ToList(),
+                IntArray2 = Enumerable.Range(0, 1).Select(x => new Random(x).Next(1, 100)).ToList(),
                 DocumentArray = Enumerable.Range(0, 3).Select(x => BasicSubDocument.Generate()).ToList()
             };
 

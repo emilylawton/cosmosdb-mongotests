@@ -8,59 +8,54 @@ using NUnit.Framework;
 
 namespace CosmosDb.MongoDbTests.Tests.Aggregate
 {
-    public class ArithmeticAggregationPipelineTestFixture : DatabaseTestFixture<BasicDocument>
+    public class ProjectArithmetic : DatabaseTestFixture<BasicDocument>
     {
         private readonly EmptyPipelineDefinition<BasicDocument> _pipeline;
 
-        public ArithmeticAggregationPipelineTestFixture(DatabaseType databaseType) : base(databaseType)
+        public ProjectArithmetic(DatabaseType databaseType) : base(databaseType)
         {
             _pipeline = new EmptyPipelineDefinition<BasicDocument>();
+            Insert(BasicDocument.Generate(x => x.Value = 10));
         }
 
         [Test]
-        public void Project_Arithmetic_Abs()
+        public void Abs()
         {
-            Insert(BasicDocument.Generate(x => x.Value = -10));
             Aggregate(_pipeline.Project(x => new {Result = Math.Abs(x.Value)}))
                 .Should().Contain(x => x.Result == 10);
         }
 
         [Test]
-        public void Project_Arithmetic_Add()
+        public void Add()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 8));
             Aggregate(_pipeline.Project(x => new {Result = x.Value + 5}))
-                .Should().Contain(x => x.Result == 13);
+                .Should().Contain(x => x.Result == 15);
         }
 
         [Test]
-        public void Project_Arithmetic_Ceiling()
+        public void Ceiling()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 0));
             Aggregate(_pipeline.Project(x => new {Result = Math.Ceiling(x.Value + 8.75f)}))
-                .Should().Contain(x => x.Result == 9f);
+                .Should().Contain(x => x.Result == 19f);
         }
 
         [Test]
-        public void Project_Arithmetic_Floor()
+        public void Floor()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 0));
             Aggregate(_pipeline.Project(x => new {Result = Math.Floor(x.Value + 8.75f)}))
-                .Should().Contain(x => x.Result == 8f);
+                .Should().Contain(x => x.Result == 18f);
         }
 
         [Test]
-        public void Project_Arithmetic_Divide()
+        public void Divide()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Project(x => new {Result = x.Value / 2}))
                 .Should().Contain(x => x.Result == 5);
         }
 
         [Test]
-        public void Project_Arithmetic_Exp()
+        public void Exp()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Project(x => new {Result = Math.Exp(x.Value)}))
                 .Should().Contain(x => x.Result == Math.Exp(10));
         }
@@ -68,71 +63,62 @@ namespace CosmosDb.MongoDbTests.Tests.Aggregate
         [Test]
         public void Project_Arithmetic_Log()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Project(x => new {Result = Math.Log(x.Value)}))
                 .Should().Contain(x => x.Result == Math.Log(10));
         }
 
         [Test]
-        public void Project_Arithmetic_Log10()
+        public void Log10()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Project(x => new {Result = Math.Log10(x.Value)}))
                 .Should().Contain(x => x.Result == Math.Log10(10));
         }
 
         [Test]
-        public void Project_Arithmetic_Ln()
+        public void Ln()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Json<BasicDocument, BsonDocument>("{ $project: { _id:0, Result: { $ln: \"$Value\" } } }"))
                 .Should().Contain(x => x["Result"].AsDouble == Math.Log(10, Math.E));
         }
 
         [Test]
-        public void Project_Arithmetic_Mod()
+        public void Mod()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Project(x => new { Result = x.Value % 3 }))
                 .Should().Contain(x => x.Result == 1);
         }
 
         [Test]
-        public void Project_Arithmetic_Multiply()
+        public void Multiply()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Project(x => new { Result = x.Value * 3 }))
                 .Should().Contain(x => x.Result == 30);
         }
 
         [Test]
-        public void Project_Arithmetic_Pow()
+        public void Pow()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Project(x => new { Result = Math.Pow(x.Value, 2) }))
                 .Should().Contain(x => x.Result == Math.Pow(10, 2));
         }
 
         [Test]
-        public void Project_Arithmetic_Sqrt()
+        public void Sqrt()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Project(x => new { Result = Math.Sqrt(x.Value) }))
                 .Should().Contain(x => x.Result == Math.Sqrt(10));
         }
 
         [Test]
-        public void Project_Arithmetic_Subtract()
+        public void Subtract()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Project(x => new { Result = x.Value - 5 }))
                 .Should().Contain(x => x.Result == 5);
         }
 
         [Test]
-        public void Project_Arithmetic_Trunc()
+        public void Trunc()
         {
-            Insert(BasicDocument.Generate(x => x.Value = 10));
             Aggregate(_pipeline.Project(x => new { Result = Math.Truncate((float)x.Value) }))
                 .Should().Contain(x => x.Result == Math.Truncate(10f));
         }
