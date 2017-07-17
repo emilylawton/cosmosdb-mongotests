@@ -20,7 +20,9 @@ namespace CosmosDb.MongoDbTests.CreateReadmeMd
                     {
                         wr.WriteLine($"{test.Name} | {GetIcon(test.NativePassed)} | {GetIcon(test.CosmosPassed)} | {test.Query}");
                     }
+
                     wr.WriteLine("<br/>");
+                    wr.WriteLine();
                 }
             }
         }
