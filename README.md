@@ -2,12 +2,12 @@
 Test | Native | Cosmos | Query
 --- | :---: | :---: | ---
 Count | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$count" : "count" }
-Limit | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$limit" : 2 }
-Match | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$match" : { "Name" : "64fa63723ece47db89491e88cb7b5f2e" } }
-Project | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Name" : "$Name", "_id" : 0 } }
+Limit | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$limit" : 2 }
+Match | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$match" : { "Name" : "13a3c05b407f49de8ff9fe2314f0051d" } }
+Project | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Name" : "$Name", "_id" : 0 } }
 Sample | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$sample" : { "size" : 2 } }
-Skip | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$skip" : 1 }
-Sort | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$sort" : { "Name" : 1 } }
+Skip | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$skip" : 1 }
+Sort | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$sort" : { "Name" : 1 } }
 Unwind | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$unwind" : "$StringArray" }
 <br/>
 
@@ -43,8 +43,8 @@ Test | Native | Cosmos | Query
 ArrayElemAt | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$arrayElemAt" : ["$StringArray", 1] }, "_id" : 0 } }
 ConcatArrays | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$concatArrays" : ["$IntArray", "$IntArray2"] }, "_id" : 0 } }
 Filter | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$filter" : { "input" : "$IntArray", "as" : "i", "cond" : { "$eq" : ["$$i", 77] } } }, "_id" : 0 } }
-In | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$in" : ["56617b2e3d4447ebad3d9fa2e2f78a48", "$StringArray"] } } }
-IndexOfArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$indexOfArray" : ["$StringArray", "c656a93a852e4d68aab41f11ec0876a6"] } } }
+In | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$in" : ["95e1b24ee72440cd9a9169c54f89f386", "$StringArray"] } } }
+IndexOfArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$indexOfArray" : ["$StringArray", "bb0e5a4fbf3e4f7a9010443ff3c3a91a"] } } }
 IsArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$isArray" : ["$StringArray"] } } }
 Map | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$map" : { "input" : "$IntArray", "as" : "s", "in" : { "$add" : ["$$s", 2] } } }, "_id" : 0 } }
 Range | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$range" : [0, "$Value"] } } }
@@ -83,28 +83,28 @@ ToUpper | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![F
 #### ArraySingleValue
 Test | Native | Cosmos | Query
 --- | :---: | :---: | ---
-AnyEq_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : "1901c12933894f518d3f48b946fd0ca7" }
+AnyEq_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : "2bdd3e742a0448eaad53655c5e696f4d" }
 AnyGt_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "IntArray" : { "$gt" : 5 } }
 AnyGte_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "IntArray" : { "$gte" : 6 } }
-AnyIn_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : { "$in" : ["ac1b8eea72e44e3cb3d54727176ba5ab", "1901c12933894f518d3f48b946fd0ca7"] } }
+AnyIn_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : { "$in" : ["400bdbebc5294391b7f17921669ac626", "2bdd3e742a0448eaad53655c5e696f4d"] } }
 AnyLt_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "IntArray" : { "$lt" : 2 } }
 AnyLte_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "IntArray" : { "$lte" : 1 } }
-AnyNe_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : { "$ne" : "1901c12933894f518d3f48b946fd0ca7" } }
-AnyNin_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : { "$nin" : ["8c258b972c4d4aa695c01185cb6d7d6b", "1901c12933894f518d3f48b946fd0ca7", "71e51bed915a403dbb821e76f7f27bac", "a91060067baa4e3ea77f41aeb2a3d6a2", "2a3c74c3f221449fb973c4212b3fdcdf"] } }
+AnyNe_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : { "$ne" : "2bdd3e742a0448eaad53655c5e696f4d" } }
+AnyNin_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : { "$nin" : ["abc682b6a001491ea2ccb9cc8e06172f", "2bdd3e742a0448eaad53655c5e696f4d", "50c1aa4d28194e9396f017472ddda9ae", "daf6be06511140928e8d899782bdc0e0", "346dda52a59145568c08583c0395ae5f"] } }
 <br/>
 
 #### Simple
 Test | Native | Cosmos | Query
 --- | :---: | :---: | ---
-And | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "_id" : CSUUID("6dab586d-15d5-4c7b-97eb-a0c45cc3cfe8"), "Name" : "1148cb28f61c4e9e8bd064e937a87873" }
-Eq_ArrayOfSubDocuments | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "DocumentArray.Value" : "b4f96d3f643845a1b2a11b937bd66e97" }
-Eq_SubDocument | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "Inner.Value" : "beb774fdaf704af18dc8219605abc7c6" }
-Eq_TopLevel | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "Name" : "1148cb28f61c4e9e8bd064e937a87873" }
-Ne_TopLevel | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "Name" : { "$ne" : "1148cb28f61c4e9e8bd064e937a87873" } }
-NotEq_TopLevel | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "Name" : { "$ne" : "1148cb28f61c4e9e8bd064e937a87873" } }
-Or | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$or" : [{ "_id" : CSUUID("6dab586d-15d5-4c7b-97eb-a0c45cc3cfe8") }, { "_id" : CSUUID("bef16e36-c74a-4e79-91dd-44197018d7b6") }] }
-Regex_ArrayOfSubDocument | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "DocumentArray" : { "$elemMatch" : { "Value" : /^b4f96d3f64/ } } }
-Regex_SubDocument | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "Inner.Value" : /^beb774fdaf/ }
-Regex_TopLevel | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "Name" : /^1148cb28f6/ }
+And | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "_id" : CSUUID("0025bfda-90a4-46a0-9ea9-952dc379bd41"), "Name" : "98ba1224a25e4e06af6e3b7152e9fbf3" }
+Eq_ArrayOfSubDocuments | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "DocumentArray.Value" : "49d4d3ea904f44b29163590d035e1779" }
+Eq_SubDocument | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "Inner.Value" : "41c0433aa6584ca48d877ab5900b6a7e" }
+Eq_TopLevel | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "Name" : "98ba1224a25e4e06af6e3b7152e9fbf3" }
+Ne_TopLevel | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "Name" : { "$ne" : "98ba1224a25e4e06af6e3b7152e9fbf3" } }
+NotEq_TopLevel | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "Name" : { "$ne" : "98ba1224a25e4e06af6e3b7152e9fbf3" } }
+Or | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$or" : [{ "_id" : CSUUID("0025bfda-90a4-46a0-9ea9-952dc379bd41") }, { "_id" : CSUUID("403c33e1-0a46-4883-9c06-ff21bf046383") }] }
+Regex_ArrayOfSubDocument | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "DocumentArray" : { "$elemMatch" : { "Value" : /^49d4d3ea90/ } } }
+Regex_SubDocument | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "Inner.Value" : /^41c0433aa6/ }
+Regex_TopLevel | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "Name" : /^98ba1224a2/ }
 <br/>
 
