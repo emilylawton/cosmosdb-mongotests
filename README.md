@@ -83,14 +83,14 @@ ToUpper | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![P
 #### ArraySingleValue
 Test | Native | Cosmos | Query | Notes 
 --- | :---: | :---: | :---: | ---
-AnyEq_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : "2bdd3e742a0448eaad53655c5e696f4d" } |
-AnyGt_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "IntArray" : { "$gt" : 5 } } | Supported with $elemMatch |
-AnyGte_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "IntArray" : { "$gte" : 6 } } | Supported with $elemMatch |
-AnyIn_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : { "$in" : ["400bdbebc5294391b7f17921669ac626", "2bdd3e742a0448eaad53655c5e696f4d"] } } | Supported with $elemMatch |
-AnyLt_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "IntArray" : { "$lt" : 2 } } | Supported with $elemMatch
-AnyLte_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "IntArray" : { "$lte" : 1 } } | Supported with $elemMatch
-AnyNe_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : { "$ne" : "2bdd3e742a0448eaad53655c5e696f4d" } } |
-AnyNin_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "StringArray" : { "$nin" : ["abc682b6a001491ea2ccb9cc8e06172f", "2bdd3e742a0448eaad53655c5e696f4d", "50c1aa4d28194e9396f017472ddda9ae", "daf6be06511140928e8d899782bdc0e0", "346dda52a59145568c08583c0395ae5f"] } } |
+AnyEq_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "StringArray" : "2bdd3e742a0448eaad53655c5e696f4d" } |
+AnyGt_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "IntArray" : { "$gt" : 5 } } | Supported with $elemMatch |
+AnyGte_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "IntArray" : { "$gte" : 6 } } | Supported with $elemMatch |
+AnyIn_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "StringArray" : { "$in" : ["400bdbebc5294391b7f17921669ac626", "2bdd3e742a0448eaad53655c5e696f4d"] } } | Supported with $elemMatch |
+AnyLt_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "IntArray" : { "$lt" : 2 } } | Supported with $elemMatch
+AnyLte_IntArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "IntArray" : { "$lte" : 1 } } | Supported with $elemMatch
+AnyNe_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "StringArray" : { "$ne" : "2bdd3e742a0448eaad53655c5e696f4d" } } |
+AnyNin_StringArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "StringArray" : { "$nin" : ["abc682b6a001491ea2ccb9cc8e06172f", "2bdd3e742a0448eaad53655c5e696f4d", "50c1aa4d28194e9396f017472ddda9ae", "daf6be06511140928e8d899782bdc0e0", "346dda52a59145568c08583c0395ae5f"] } } |
 <br/>
 
 #### Simple
