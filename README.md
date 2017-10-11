@@ -12,46 +12,46 @@ Unwind | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pa
 <br/>
 
 #### Group
-Test | Native | Cosmos | Query | Notes
---- | :---: | :---: | :---: | ---
-Push | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$group" : { "_id" : "$Name", "AllInnerDocuments" : { "$push" : "$Inner" } } } | Pending deployment
+Test | Native | Cosmos | Query
+--- | :---: | :---: | ---
+Push | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$group" : { "_id" : "$Name", "AllInnerDocuments" : { "$push" : "$Inner" } } }
 <br/>
 
 #### ProjectArithmetic
-Test | Native | Cosmos | Query
---- | :---: | :---: | ---
-Abs | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$abs" : "$Value" }, "_id" : 0 } }
-Add | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$add" : ["$Value", 5] }, "_id" : 0 } }
-Ceiling | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$ceil" : { "$add" : ["$Value", 8.75] } }, "_id" : 0 } }
-Divide | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$divide" : ["$Value", 2] }, "_id" : 0 } }
-Exp | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$exp" : ["$Value"] }, "_id" : 0 } }
-Floor | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$floor" : { "$add" : ["$Value", 8.75] } }, "_id" : 0 } }
-Ln | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "_id" : 0, "Result" : { "$ln" : "$Value" } } }
-Log10 | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$log10" : ["$Value"] }, "_id" : 0 } }
-Mod | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$mod" : ["$Value", 3] }, "_id" : 0 } }
-Multiply | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$multiply" : ["$Value", 3] }, "_id" : 0 } }
-Pow | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$pow" : ["$Value", 2.0] }, "_id" : 0 } }
-Project_Arithmetic_Log | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$ln" : ["$Value"] }, "_id" : 0 } }
-Sqrt | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$sqrt" : ["$Value"] }, "_id" : 0 } }
-Subtract | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$subtract" : ["$Value", 5] }, "_id" : 0 } }
-Trunc | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$trunc" : "$Value" }, "_id" : 0 } }
+Test | Native | Cosmos | Query | Notes
+--- | :---: | :---: | :---: | ---
+Abs | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$abs" : "$Value" }, "_id" : 0 } } | 
+Add | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$add" : ["$Value", 5] }, "_id" : 0 } } | 
+Ceiling | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$ceil" : { "$add" : ["$Value", 8.75] } }, "_id" : 0 } } | Pending deployment
+Divide | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$divide" : ["$Value", 2] }, "_id" : 0 } } | Pending deployment
+Exp | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$exp" : ["$Value"] }, "_id" : 0 } } | 
+Floor | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$floor" : { "$add" : ["$Value", 8.75] } }, "_id" : 0 } } | Pending deployment
+Ln | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "_id" : 0, "Result" : { "$ln" : "$Value" } } } | 
+Log10 | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$log10" : ["$Value"] }, "_id" : 0 } } | 
+Mod | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$mod" : ["$Value", 3] }, "_id" : 0 } } | Pending deployment
+Multiply | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$multiply" : ["$Value", 3] }, "_id" : 0 } } | 
+Pow | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$pow" : ["$Value", 2.0] }, "_id" : 0 } } | Pending deployment
+Project_Arithmetic_Log | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$ln" : ["$Value"] }, "_id" : 0 } } | 
+Sqrt | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$sqrt" : ["$Value"] }, "_id" : 0 } } | 
+Subtract | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$subtract" : ["$Value", 5] }, "_id" : 0 } } | 
+Trunc | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$trunc" : "$Value" }, "_id" : 0 } } | 
 <br/>
 
 #### ProjectArray
 Test | Native | Cosmos | Query | Notes
 --- | :---: | :---: | :---: | ---
-ArrayElemAt | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$arrayElemAt" : ["$StringArray", 1] }, "_id" : 0 } } | Pending deployment
-ConcatArrays | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$concatArrays" : ["$IntArray", "$IntArray2"] }, "_id" : 0 } } | Pending deployment
+ArrayElemAt | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$arrayElemAt" : ["$StringArray", 1] }, "_id" : 0 } } |
+ConcatArrays | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$concatArrays" : ["$IntArray", "$IntArray2"] }, "_id" : 0 } } |
 Filter | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$filter" : { "input" : "$IntArray", "as" : "i", "cond" : { "$eq" : ["$$i", 77] } } }, "_id" : 0 } } | 
-In | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$in" : ["95e1b24ee72440cd9a9169c54f89f386", "$StringArray"] } } } | Pending deployment
-IndexOfArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$indexOfArray" : ["$StringArray", "bb0e5a4fbf3e4f7a9010443ff3c3a91a"] } } } | Pending deployment
-IsArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$isArray" : ["$StringArray"] } } } | Pending deployment
+In | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$in" : ["95e1b24ee72440cd9a9169c54f89f386", "$StringArray"] } } } |
+IndexOfArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$indexOfArray" : ["$StringArray", "bb0e5a4fbf3e4f7a9010443ff3c3a91a"] } } } |
+IsArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$isArray" : ["$StringArray"] } } } |
 Map | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$map" : { "input" : "$IntArray", "as" : "s", "in" : { "$add" : ["$$s", 2] } } }, "_id" : 0 } } | 
 Range | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$range" : [0, "$Value"] } } } | 
 Reduce | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Fail](/CosmosDb.MongoDbTests.CreateReadmeMd/fail.png?raw=true) | { "$project" : { "Result" : { "$reduce" : { "input" : "$IntArray", "initialValue" : 0, "in" : { "$add" : ["$$value", "$$this"] } } } } } | 
-ReverseArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$reverseArray" : "$StringArray" } } } | Pending deployment
-Size | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$size" : "$StringArray" }, "_id" : 0 } } | Pending deployment
-Slice | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$slice" : ["$StringArray", 2, 1] }, "_id" : 0 } } | Pending deployment
+ReverseArray | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$reverseArray" : "$StringArray" } } } |
+Size | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$size" : "$StringArray" }, "_id" : 0 } } |
+Slice | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | ![Pass](/CosmosDb.MongoDbTests.CreateReadmeMd/pass.png?raw=true) | { "$project" : { "Result" : { "$slice" : ["$StringArray", 2, 1] }, "_id" : 0 } } |
 <br/>
 
 #### ProjectBoolean
